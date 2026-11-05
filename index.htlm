@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ali Crypto</title>
+<base href="/smc-signal/">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap');
+:root{--bg:#05070d;--cd:rgba(16,21,32,.78);--tx:#eef1f6;--mu:#8e99ab;--ac:#f7931a;--a2:#ffd36b;--gd:#2fe39a;--rd:#ff5470;--bd:rgba(255,255,255,.08);color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;color:var(--tx);font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:radial-gradient(800px 480px at 90% -8%,rgba(247,147,26,.2),transparent 60%),radial-gradient(700px 500px at -10% 105%,rgba(120,80,255,.14),transparent 60%),repeating-linear-gradient(0deg,rgba(255,255,255,.022) 0 1px,transparent 1px 44px),repeating-linear-gradient(90deg,rgba(255,255,255,.022) 0 1px,transparent 1px 44px),#05070d;background-attachment:fixed}
+main{max-width:560px;margin:0 auto;padding:14px}
+.tick{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:12px;font-size:12px;color:var(--mu)}
+.tick span{background:rgba(255,255,255,.05);border:1px solid var(--bd);border-radius:20px;padding:4px 10px}
+.tick b{color:var(--tx)}.u{color:var(--gd);font-style:normal}.d{color:var(--rd);font-style:normal}
+.hero{background:linear-gradient(145deg,rgba(70,42,6,.6),rgba(10,14,22,.85));border:1px solid rgba(247,147,26,.3);border-radius:22px;padding:24px 16px 18px;margin-bottom:12px;text-align:center;box-shadow:0 24px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.07);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,transparent,#f7931a,transparent)}
+.cw{perspective:600px;margin-bottom:12px}
+.coin{width:86px;height:86px;margin:0 auto;border-radius:50%;display:grid;place-items:center;font:900 48px/1 Orbitron,"Noto Sans",system-ui,sans-serif;color:#6b3f00;background:radial-gradient(circle at 32% 28%,#ffe9a8,#f7931a 55%,#b86400);box-shadow:inset 0 -6px 10px rgba(0,0,0,.35),inset 0 4px 8px rgba(255,255,255,.5),0 0 0 4px #c77408,0 0 0 6px #ffd36b,0 14px 34px rgba(247,147,26,.5);animation:spin 7s linear infinite}
+@keyframes spin{to{transform:rotateY(360deg)}}
+.brand{font-family:Orbitron,"Arial Black",Impact,sans-serif;font-weight:900;font-size:clamp(26px,9vw,40px);letter-spacing:3px;line-height:1.1;transform:perspective(520px) rotateX(14deg);filter:drop-shadow(0 1px 0 #a35d00) drop-shadow(0 2px 0 #864b00) drop-shadow(0 3px 0 #6b3b00) drop-shadow(0 4px 0 #522d00) drop-shadow(0 12px 14px rgba(0,0,0,.65))}
+.brand span{background:linear-gradient(180deg,#ffe9a8,#f7931a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.brand i{font-style:normal;margin-left:8px;color:#fff}
+.tag{font-family:Orbitron,sans-serif;font-size:10px;letter-spacing:4px;margin-top:12px;color:var(--ac)}
+.hero p{margin:8px 0 0;font-size:13px;color:var(--mu);line-height:1.6}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px;text-align:left}
+.feat div{background:rgba(255,255,255,.04);border:1px solid var(--bd);border-radius:12px;padding:9px 10px;font-size:12px}
+.card{background:var(--cd);border:1px solid var(--bd);border-radius:18px;padding:16px;margin-bottom:12px;box-shadow:0 12px 30px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.05);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.sig{position:relative;overflow:hidden}
+.sig::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--gd);box-shadow:0 0 18px var(--gd)}
+.sig.s::before{background:var(--rd);box-shadow:0 0 18px var(--rd)}
+label{display:block;font-size:10.5px;color:var(--mu);margin-bottom:3px;text-transform:uppercase;letter-spacing:.6px}
+input,select,button{font:inherit;border-radius:12px;border:1px solid var(--bd);padding:12px;background:rgba(255,255,255,.05);color:var(--tx);width:100%;outline:none}
+input:focus,select:focus{border-color:var(--ac);box-shadow:0 0 0 3px rgba(247,147,26,.2)}
+select option{background:#10141c}
+input[type=checkbox]{accent-color:#f7931a;width:18px;height:18px}
+button{background:linear-gradient(180deg,#ffe596,#f7931a 55%,#b86400);color:#1a1000;border:0;border-radius:14px;padding:15px;margin-top:14px;font-family:Orbitron,system-ui,sans-serif;font-weight:900;font-size:13px;letter-spacing:2px;text-transform:uppercase;box-shadow:0 5px 0 #6b3b00,0 12px 20px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.55);transition:transform .08s,box-shadow .08s}
+button:active{transform:translateY(4px);box-shadow:0 1px 0 #6b3b00,0 4px 8px rgba(0,0,0,.5)}
+button:disabled{opacity:.55}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.seg button{margin:0;background:rgba(255,255,255,.05);color:var(--mu);border:1px solid var(--bd);box-shadow:none;font:700 12px system-ui,sans-serif;letter-spacing:0;text-transform:none;padding:13px 8px}
+.seg button.on{background:linear-gradient(180deg,#ffe596,#e08a14);color:#1a1000;border-color:transparent;box-shadow:0 3px 0 #6b3b00,0 8px 16px rgba(0,0,0,.4)}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:10px}
+.ch{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}
+.ch label{display:flex;gap:6px;align-items:center;font-size:13px;color:var(--tx);margin:0;text-transform:none;letter-spacing:0;background:rgba(255,255,255,.04);border:1px solid var(--bd);border-radius:10px;padding:9px 10px}
+.ch input{width:auto}
+.note{font-size:12px;color:var(--mu);margin-top:6px;line-height:1.5}
+.h{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.h small{color:var(--mu);font-weight:500}
+.tg{padding:5px 14px;border-radius:8px;font:800 12px Orbitron,sans-serif;letter-spacing:1.5px;color:#fff}
+.buy{background:linear-gradient(180deg,#4ff0b0,#12a866);box-shadow:0 0 16px rgba(47,227,154,.45)}
+.sell{background:linear-gradient(180deg,#ff8aa0,#d93a56);box-shadow:0 0 16px rgba(255,84,112,.45)}
+.gd{display:inline-block;padding:1px 7px;border-radius:6px;background:linear-gradient(180deg,#ffe596,#e08a14);color:#1a1000;font-size:11px;font-weight:800;margin-left:6px}
+.gr{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px;font-size:10.5px;color:var(--mu)}
+.gr>div{background:rgba(255,255,255,.04);border:1px solid var(--bd);border-radius:10px;padding:7px 4px;text-align:center}
+.gr b{display:block;font-size:12.5px;color:var(--tx)}
+.lv{margin-top:8px;font-size:12px;background:rgba(247,147,26,.08);border:1px solid rgba(247,147,26,.25);border-radius:10px;padding:8px 10px;line-height:1.6}
+.warn{color:var(--rd);font-weight:700;font-size:12.5px;margin-top:6px}
+.acc{font-weight:800}
+#app{display:none}
+@media (prefers-reduced-motion:reduce){.coin{animation:none}}
+</style>
+</head>
+<body>
+<main>
+<div class="tick" id="tick"></div>
+<div id="lock" class="hero" style="margin-top:4vh">
+  <div class="cw"><div class="coin">₿</div></div>
+  <div class="brand"><span>ALI</span><i>CRYPTO</i></div>
+  <div class="tag">VVIP SIGNALS</div>
+  <p>Bitcoin se lekar sab top coins tak. 11 strategies, news aur Fear &amp; Greed, leverage calculator, aur 24/7 signals, weekend par bhi.</p>
+  <div class="feat"><div>🏆 Top coins + movers</div><div>🧠 11 strategies</div><div>📰 News + Fear &amp; Greed</div><div>⚡ Leverage calculator</div></div>
+  <label id="lockLbl" style="margin-top:16px;text-align:left">Password</label>
+  <input id="pw" type="password">
+  <button id="lockBtn">Login</button>
+  <div id="lockErr" class="warn"></div>
+</div>
+<div id="app">
+  <div class="hero" style="padding:18px 14px 14px">
+    <div class="cw"><div class="coin" style="width:62px;height:62px;font-size:34px">₿</div></div>
+    <div class="brand"><span>ALI</span><i>CRYPTO</i></div>
+    <div class="tag">24/7 SIGNALS • LEVERAGE • NEWS</div>
+  </div>
+  <div class="card">
+    <div class="seg"><button id="m_scalp" class="on">⚡ Scalping</button><button id="m_intra">📈 Intraday</button></div>
+    <div class="g">
+      <div><label>Coins</label><select id="cs"><option value="v10">Top 10 (volume)</option><option value="v30" selected>Top 30 (volume)</option><option value="v60">Top 60 (volume)</option><option value="g20">Top 20 Gainers (24h)</option><option value="l20">Top 20 Losers (24h)</option></select></div>
+      <div><label>Timeframe</label><select id="tf"></select></div>
+      <div><label>Target</label><select id="tgt"><option value="acc">Zyada accuracy</option><option value="bal" selected>Balanced</option><option value="rew">Zyada reward</option></select></div>
+      <div><label>Quality</label><select id="q"><option value="norm">Normal</option><option value="strict" selected>Strict</option></select></div>
+    </div>
+    <div style="margin-top:10px"><label>Apne coins (optional): jaise BTC, SOL, PEPE</label><input id="custom" placeholder="khali chhodo to upar wali list"></div>
+    <div class="g3">
+      <div><label>Balance $</label><input id="bal" type="number" value="100"></div>
+      <div><label>Risk %</label><input id="rk" type="number" value="2" step="0.5"></div>
+      <div><label>Leverage</label><select id="lv"><option>3</option><option>5</option><option selected>10</option><option>20</option><option>25</option><option>50</option></select></div>
+    </div>
+    <label style="margin-top:12px">Strategies</label>
+    <div class="ch" id="chips"></div>
+    <label class="ch" style="display:flex;margin-top:10px"><input id="prof" type="checkbox" checked> Sirf profitable record wale</label>
+    <button id="go">Scan karo</button>
+    <div id="msg" class="note"></div>
+  </div>
+  <div id="news"></div>
+  <div id="out"></div>
+  <div class="note">Signal tool hai, profit guarantee nahi. Leverage mein poora balance ud sakta hai. Past accuracy mein fees ka sirf chhota andaza hai. Pehle chhote paise ya demo se test karo.</div>
+</div>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+async function sha(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode('smc|'+s));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+let stored=null;try{stored=localStorage.getItem('smc_pw')}catch(e){}
+if(!stored){$('lockLbl').textContent='Naya password set karo (min 6 characters)';$('lockBtn').textContent='Set password'}
+$('lockBtn').onclick=async()=>{const p=$('pw').value;
+  if(!stored){if(p.length<6){$('lockErr').textContent='Kam se kam 6 characters.';return}try{localStorage.setItem('smc_pw',await sha(p))}catch(e){}unlock()}
+  else if(await sha(p)===stored)unlock();else $('lockErr').textContent='Galat password.'};
+$('pw').addEventListener('keydown',e=>{if(e.key==='Enter')$('lockBtn').click()});
+function unlock(){$('lock').style.display='none';$('app').style.display='block';loadEngine();loadNews().then(showNews)}
+/*Q*/
+const BASES=['https://data-api.binance.vision/api/v3','https://api.binance.com/api/v3'];
+async function jget(p){let er;for(const b of BASES){try{const r=await fetch(b+p);if(!r.ok)throw Error('HTTP '+r.status);return await r.json()}catch(e){er=e}}throw er}
+const pf=p=>p>=1000?p.toFixed(1):p>=1?p.toFixed(3):p>=.01?p.toFixed(5):p.toFixed(8);
+const BAD=/(UP|DOWN|BULL|BEAR)USDT$|^(USDC|FDUSD|TUSD|USDP|DAI|EUR|AEUR|USD1|XUSD|PAXG|WBTC|WBETH)/;
+function pick(all,w){
+  const t=all.filter(x=>x.symbol.endsWith('USDT')&&!BAD.test(x.symbol)&&+x.quoteVolume>2e6),n=+w.slice(1);
+  if(w[0]=='v')t.sort((a,b)=>b.quoteVolume-a.quoteVolume);
+  else{const h=t.filter(x=>+x.quoteVolume>2e7);h.sort((a,b)=>w[0]=='g'?b.priceChangePercent-a.priceChangePercent:a.priceChangePercent-b.priceChangePercent);return h.slice(0,n).map(x=>x.symbol)}
+  return t.slice(0,n).map(x=>x.symbol);
+}
+async function klines(sym,tf){const r=await jget(`/klines?symbol=${sym}&interval=${tf}&limit=1000`);return r.slice(0,-1).map(k=>({open:k[1],high:k[2],low:k[3],close:k[4],datetime:new Date(k[0]).toISOString().replace('T',' ').slice(0,19)}))}
+const POS=/surge|rally|soar|approv|inflow|adopt|partnership|bullish|record|gain|launch|upgrade|breakout/i,NEG=/hack|exploit|ban|lawsuit|sue|crash|dump|fraud|outflow|bearish|plunge|liquidat|delist|scam|sell-?off/i;
+function mood(CC,sym){const now=Date.now()/1000,re=new RegExp('\\b'+sym+'\\b','i');let n=0,s=0;
+  CC.forEach(a=>{if(now-a.published_on>86400)return;if(!re.test(a.title)&&!(a.categories||'').split('|').includes(sym))return;n++;s+=(POS.test(a.title)?1:0)-(NEG.test(a.title)?1:0)});return{n,s}}
+function lev(x,B,rk,L){const d=Math.abs(x.e-x.sl)/x.e,not=B*rk/100/d,long=x.dir=='BUY',liq=long?x.e*(1-1/L+.005):x.e*(1+1/L-.005);
+  return{not,mar:not/L,liq,bad:long?liq>=x.sl:liq<=x.sl,roi:Math.abs(x.tp1-x.e)/x.e*L*100}}
+/*E*/
+let E=null,mode='scalp',FF=[],CC=[],FG=null;
+const TFS={scalp:['1m','5m','15m'],intra:['15m','30m','1h','4h']};
+async function loadEngine(){
+  try{const t=await (await fetch('index.html?'+Date.now())).text(),m=t.match(/\/\*P\*\/([\s\S]*?)\/\*E\*\//);if(!m)throw 0;
+    E=new Function(m[1].replace('hr>=7&&hr<20','true')+';return{MODES,TGT,STR,analyze}')();
+    E.STR.forEach(s=>$('chips').insertAdjacentHTML('beforeend',`<label><input type="checkbox" id="c_${s[0]}" checked> ${s[1]}</label>`));
+  }catch(e){$('msg').textContent='Engine load nahi hua. Repo mein Ali FX wali index.html honi chahiye.'}
+}
+function setMode(m){mode=m;$('m_scalp').className=m=='scalp'?'on':'';$('m_intra').className=m=='intra'?'on':'';
+  $('tf').innerHTML='';$('tf').add(new Option('Sab timeframes','ALL'));TFS[m].forEach(t=>$('tf').add(new Option(t)));$('tf').value='ALL'}
+$('m_scalp').onclick=()=>setMode('scalp');$('m_intra').onclick=()=>setMode('intra');setMode('scalp');
+async function loadNews(){
+  try{FF=(await (await fetch('https://nfs.faireconomy.media/ff_calendar_thisweek.json')).json()).filter(x=>x.impact==='High'&&x.country==='USD').map(x=>({t:new Date(x.date).getTime(),n:x.title,f:x.forecast,p:x.previous}))}catch(e){FF=[]}
+  try{CC=(await (await fetch('https://min-api.cryptocompare.com/data/v2/news/?lang=EN')).json()).Data||[]}catch(e){CC=[]}
+  try{const g=(await (await fetch('https://api.alternative.me/fng/')).json()).data[0];FG={v:+g.value,c:g.value_classification}}catch(e){FG=null}
+}
+const tm=t=>new Date(t).toLocaleString([],{weekday:'short',hour:'2-digit',minute:'2-digit'});
+function showNews(){
+  const now=Date.now(),L=FF.filter(x=>x.t>now-1800000).sort((a,b)=>a.t-b.t).slice(0,3);
+  $('news').innerHTML='<div class="card"><b>📰 Market mood</b>'+(FG?`<div class="note" style="color:var(--tx)">Fear &amp; Greed: <b>${FG.v}</b> (${FG.c})</div>`:'')+
+  (L.length?'<div class="note">Aane wali USD news (crypto bhi hilti hai):</div>'+L.map(x=>`<div class="note" style="color:var(--tx)">${tm(x.t)} · ${x.n}${x.f?` (forecast ${x.f}, pichla ${x.p||'-'})`:''}</div>`).join(''):'')+
+  (!FG&&!L.length?'<div class="note">News feed load nahi hui.</div>':'')+'</div>';
+}
+async function ticker(){try{const r=await jget('/ticker/24hr?symbols='+encodeURIComponent('["BTCUSDT","ETHUSDT","SOLUSDT","BNBUSDT"]'));
+  $('tick').innerHTML=r.map(x=>`<span>${x.symbol.replace('USDT','')} <b>${pf(+x.lastPrice)}</b> <i class="${x.priceChangePercent>=0?'u':'d'}">${(+x.priceChangePercent).toFixed(1)}%</i></span>`).join('')}catch(e){}}
+ticker();setInterval(ticker,30000);
+let busy=false;
+$('go').onclick=async()=>{
+  if(busy)return;if(!E){$('msg').textContent='Engine abhi load ho raha hai, 2 second baad dubara dabao.';return}
+  const ids=E.STR.map(s=>s[0]).filter(id=>$('c_'+id).checked);if(!ids.length){$('msg').textContent='Kam se kam ek strategy chuno.';return}
+  busy=true;$('go').disabled=true;await loadNews();showNews();
+  const P=E.MODES[mode],t=E.TGT[$('tgt').value],Q=$('q').value,tfs=$('tf').value=='ALL'?TFS[mode]:[$('tf').value],res=[],skip=[];
+  try{
+    const cu=$('custom').value.trim();$('msg').textContent='Coins ki list la raha hu...';
+    const coins=cu?cu.toUpperCase().split(/[\s,]+/).filter(Boolean).map(x=>x.replace(/USDT$/,'')+'USDT'):pick(await jget('/ticker/24hr'),$('cs').value);
+    const jobs=[];coins.forEach(c=>tfs.forEach(f=>jobs.push([c,f])));
+    for(let q=0;q<jobs.length;q++){
+      $('msg').textContent=`Scan ${q+1}/${jobs.length}: ${jobs[q][0]} ${jobs[q][1]}`;
+      try{const v=await klines(jobs[q][0],jobs[q][1]);if(v.length<150)throw 0;
+        const a=E.analyze(v,P,ids,Q,t);a.sigs.forEach(s=>res.push({...s,st:a.st,coin:jobs[q][0].replace('USDT',''),tf:jobs[q][1]}))}catch(e){skip.push(jobs[q][0])}
+      if(q%5==4)show(res);
+    }
+    show(res);$('msg').textContent='Scan poora hua.'+(skip.length?' Skip: '+[...new Set(skip)].slice(0,5).join(', '):'');
+  }catch(e){$('msg').textContent='Error: '+e.message+' (Binance data nahi mila, VPN/network check karo)'}
+  busy=false;$('go').disabled=false;
+};
+const gr=x=>x.sc>=5?'A+':x.sc>=4?'A':'B';
+function show(res){
+  const only=$('prof').checked,B=+$('bal').value||100,rk=+$('rk').value||2,L=+$('lv').value,now=Date.now(),nm=Object.fromEntries(E.STR);
+  const S1=res.map(x=>({...x,ok:x.st.n>=15&&x.st.avg>0})).filter(x=>!only||x.ok).sort((a,b)=>b.sc-a.sc||b.st.avg-a.st.avg);
+  if(!S1.length){$('out').innerHTML='<div class="card">Abhi koi setup nahi. Thodi der baad scan karo, ya Normal quality / profitable filter band karke dekho.</div>';return}
+  const un=FF.find(y=>Math.abs(y.t-now)<=1800000);
+  $('out').innerHTML=S1.map(x=>{const lg=x.dir=='BUY',v=lev(x,B,rk,L),m=mood(CC,x.coin),op=m.n&&((lg&&m.s<0)||(!lg&&m.s>0));
+    return`<div class="card sig ${lg?'':'s'}"><div class="h"><b>${x.coin}<small>/USDT · ${x.tf}</small><span class="gd">${gr(x)}</span></b><span class="tg ${lg?'buy':'sell'}">${lg?'LONG':'SHORT'}</span></div>
+    <div class="note" style="color:var(--tx)">${x.f.map(i=>nm[i]).join(' + ')}</div>
+    <div class="gr"><div>Entry<b>${pf(x.e)}</b></div><div>SL<b>${pf(x.sl)}</b></div><div>TP1 (${x.r1}R)<b>${pf(x.tp1)}</b></div><div>TP2 (${x.r2}R)<b>${pf(x.tp2)}</b></div></div>
+    <div class="lv">⚡ ${L}x | Position <b>$${v.not.toFixed(0)}</b> | Margin <b>$${v.mar.toFixed(2)}</b> | Liq <b>${pf(v.liq)}</b> | TP1 pe <b>+${v.roi.toFixed(0)}%</b> (margin pe)</div>
+    ${v.bad?'<div class="warn">⚠ Liquidation SL se pehle aa jayegi. Leverage kam karo.</div>':''}${v.mar>B?'<div class="warn">⚠ Margin balance se zyada hai. Leverage badhao ya risk % kam karo.</div>':''}
+    <div class="note">Past accuracy: <span class="acc" style="color:var(--${x.ok?'gd':'rd'})">${(x.st.win*100).toFixed(0)}%</span> (${x.st.n} trades) · avg ${x.st.avg>=0?'+':''}${x.st.avg.toFixed(2)}R ${x.ok?'':'(kamzor)'}</div>
+    <div class="note">News mood: ${m.n?(m.s>0?'Bullish':m.s<0?'Bearish':'Neutral')+' ('+m.n+' headlines)':'koi khaas khabar nahi'}${FG?' · Fear &amp; Greed '+FG.v:''}</div>
+    ${op?'<div class="warn">⚠ News mood is signal ke ulta hai, savdhan.</div>':''}${un?'<div class="warn">⚠ USD news abhi: '+un.n+'. Trade mat lo.</div>':''}</div>`}).join('');
+}
+</script>
+</body>
+  </html>
